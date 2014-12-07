@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{40775C75-0D3D-4603-9D06-4756973A9E16}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pantheon.Common</RootNamespace>
+    <AssemblyName>Pantheon.Common</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>default</LangVersion>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lidgren.Network, Version=2012.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonInitializer.cs" />
+    <Compile Include="DisconnectCode.cs" />
+    <Compile Include="DistributedObjects\DistributedObjectDefinition.cs" />
+    <Compile Include="DistributedObjects\DistributedObjectRepository.cs" />
+    <Compile Include="DistributedObjects\AIReceiveAttribute.cs" />
+    <Compile Include="DistributedObjects\BroadcastAttribute.cs" />
+    <Compile Include="DistributedObjects\ClientReceiveAttribute.cs" />
+    <Compile Include="DistributedObjects\ClientSendAttribute.cs" />
+    <Compile Include="DistributedObjects\DbAttribute.cs" />
+    <Compile Include="DistributedObjects\DistributedObjectAttribute.cs" />
+    <Compile Include="DistributedObjects\IdAttribute.cs" />
+    <Compile Include="DistributedObjects\IDistributedObject.cs" />
+    <Compile Include="DistributedObjects\OwnerReceiveAttribute.cs" />
+    <Compile Include="DistributedObjects\OwnerSendAttribute.cs" />
+    <Compile Include="DistributedObjects\PantheonAttribute.cs" />
+    <Compile Include="DistributedObjects\RamAttribute.cs" />
+    <Compile Include="DistributedObjects\RequiredAttribute.cs" />
+    <Compile Include="Event\ConnectionEventArgs.cs" />
+    <Compile Include="Event\DataEventArgs.cs" />
+    <Compile Include="Exceptions\PantheonException.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="INetworkManager.cs" />
+    <Compile Include="IO\NetStream.cs" />
+    <Compile Include="IO\NetStream.Readers.cs" />
+    <Compile Include="IO\NetStream.Writers.cs" />
+    <Compile Include="IO\SerializedObject.cs" />
+    <Compile Include="MemberInfoExtensions.cs" />
+    <Compile Include="NetPacket.cs" />
+    <Compile Include="NetworkManagerFactory.cs" />
+    <Compile Include="NetworkManagerFeatures.cs" />
+    <Compile Include="PantheonInitializer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueExtensions.cs" />
+    <Compile Include="DistributedServices\IServiceClient.cs" />
+    <Compile Include="DistributedServices\IServiceServer.cs" />
+    <Compile Include="DistributedServices\MessageCodeAttribute.cs" />
+    <Compile Include="TCP\TcpNetworkManager.cs" />
+    <Compile Include="TCP\TcpNetworkManagerServer.cs" />
+    <Compile Include="TCP\TcpSocket.cs" />
+    <Compile Include="Utility\GZip.cs" />
+    <Compile Include="Utility\Throw.cs" />
+    <Compile Include="Utility\ConvertBits.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IO\NetStream.ArraySupport.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="project.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

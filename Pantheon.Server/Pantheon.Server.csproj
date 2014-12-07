@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56000703-AAA6-4795-BD35-73F0E05FD441}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pantheon.Server</RootNamespace>
+    <AssemblyName>Pantheon.Server</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyResolver.cs" />
+    <Compile Include="Exceptions\ServerConfigException.cs" />
+    <Compile Include="MessageDirector.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContainer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pantheon.ClientAgent\Pantheon.ClientAgent.csproj">
+      <Project>{5da2a92a-6a6f-47fd-afab-54bca97a3872}</Project>
+      <Name>Pantheon.ClientAgent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pantheon.Common\Pantheon.Common.csproj">
+      <Project>{40775c75-0d3d-4603-9d06-4756973a9e16}</Project>
+      <Name>Pantheon.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pantheon.Core\Pantheon.Core.csproj">
+      <Project>{c02b933f-a03f-4249-abcf-b9608c5d088c}</Project>
+      <Name>Pantheon.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pantheon.Database\Pantheon.Database.csproj">
+      <Project>{fffa4a2b-3b93-4e8e-809e-ab7183d4570b}</Project>
+      <Name>Pantheon.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pantheon.GameServer\Pantheon.GameServer.csproj">
+      <Project>{f804cab9-b946-4062-8054-35d57a500b66}</Project>
+      <Name>Pantheon.GameServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pantheon.Lidgren\Pantheon.Lidgren.csproj">
+      <Project>{6ac72012-bb7a-4440-af59-8ffa41d5096e}</Project>
+      <Name>Pantheon.Lidgren</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pantheon.MessageDirector\Pantheon.MessageDirector.csproj">
+      <Project>{ad5c7fa4-68c7-4cd8-b44d-9ddb09388fc9}</Project>
+      <Name>Pantheon.MessageDirector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pantheon.Server.Config\Pantheon.Server.Config.csproj">
+      <Project>{a35b4cf6-bfa1-434e-82bf-d90cc260bff5}</Project>
+      <Name>Pantheon.Server.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pantheon.Server.ServiceLoader\Pantheon.Server.ServiceLoader.csproj">
+      <Project>{582807b5-bdb0-4ccf-91b0-657b67c67258}</Project>
+      <Name>Pantheon.Server.ServiceLoader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pantheon.StateServer\Pantheon.StateServer.csproj">
+      <Project>{58ba824f-793a-4c6c-bc69-97c8c2bff7ef}</Project>
+      <Name>Pantheon.StateServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

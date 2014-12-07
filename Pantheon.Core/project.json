@@ -1,0 +1,21 @@
+﻿{
+    "version": "1.0.0.0",
+    "compilationOptions": { },
+    "dependencies": {
+        "Pantheon.Common": ""
+    },
+    "frameworks": {
+        "net45": {
+            "dependencies": {
+                "System.IO": "",
+                "System.Console": "",
+                "System.Reflection": "",
+                "System.Linq": "",
+                "System.Threading.Tasks": "",
+                "System.Collections": "",
+                "Microsoft.CSharp": "",
+                "System.Threading": ""
+            }
+        }
+    }
+}

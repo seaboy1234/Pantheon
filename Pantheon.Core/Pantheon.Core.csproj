@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C02B933F-A03F-4249-ABCF-B9608C5D088C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pantheon.Core</RootNamespace>
+    <AssemblyName>Pantheon.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lidgren.Network, Version=2012.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArrayExtensions.cs" />
+    <Compile Include="AuthenticationState.cs" />
+    <Compile Include="Channel.cs" />
+    <Compile Include="ClientAgent\PantheonClientAgent.cs" />
+    <Compile Include="Database\DatabaseClient.cs" />
+    <Compile Include="DistributedObjects\DistributedObjectData.cs" />
+    <Compile Include="DistributedServices\DistributedService.cs" />
+    <Compile Include="DistributedServices\DistributedServiceProxy.cs" />
+    <Compile Include="DistributedServices\EndpointAttribute.cs" />
+    <Compile Include="DistributedServices\IDistributedService.cs" />
+    <Compile Include="DistributedServices\IEmptyService.cs" />
+    <Compile Include="DistributedServices\RemoteCallerInfo.cs" />
+    <Compile Include="DistributedServices\ServiceClient.cs" />
+    <Compile Include="Exceptions\PantheonServiceException.cs" />
+    <Compile Include="DistributedServices\RemoteMethodAttribute.cs" />
+    <Compile Include="DistributedServices\ReplyWithAttribute.cs" />
+    <Compile Include="DistributedServices\Serialization.cs" />
+    <Compile Include="DistributedServices\ServiceProxy.cs" />
+    <Compile Include="Event\EventLoggedEventArgs.cs" />
+    <Compile Include="Event\PropertyUpdatedEventArgs.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IMessageDirector.cs" />
+    <Compile Include="InternalRepository.cs" />
+    <Compile Include="IPantheonService.cs" />
+    <Compile Include="Logging\ConsoleLogOutput.cs" />
+    <Compile Include="Logging\EventLogger.cs" />
+    <Compile Include="Logging\FileLogOutput.cs" />
+    <Compile Include="Logging\IEventLogger.cs" />
+    <Compile Include="Logging\LogFile.cs" />
+    <Compile Include="Logging\LoggingEventArgs.cs" />
+    <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Logging\LogOutput.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="MessageCallback.cs" />
+    <Compile Include="MessageCode.cs" />
+    <Compile Include="MessageDirector.cs" />
+    <Compile Include="MessageDirectorClient.cs" />
+    <Compile Include="MessageExtensions.cs" />
+    <Compile Include="MessageRouting\InvalidMessageHandlerException.cs" />
+    <Compile Include="MessageRouting\MessageHandlerAttribute.cs" />
+    <Compile Include="MessageRouting\MessageHandlerInfo.cs" />
+    <Compile Include="MessageRouting\MessageRouter.cs" />
+    <Compile Include="MessageRouting\MessageRouterFactory.cs" />
+    <Compile Include="Messages\DiscoverServiceMessage.cs" />
+    <Compile Include="NetStreamExtensions.cs" />
+    <Compile Include="NodeMessageDirector.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceClient.cs" />
+    <Compile Include="ServiceManager.cs" />
+    <Compile Include="ServiceOwner.cs" />
+    <Compile Include="ServicePointer.cs" />
+    <Compile Include="StateServer\IObjectGenerator.cs" />
+    <Compile Include="StateServer\ObjectOwnerClient.cs" />
+    <Compile Include="StateServer\StateServerClient.cs" />
+    <Compile Include="StateServer\ZoneClient.cs" />
+    <Compile Include="StateServer\ZoneServerClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pantheon.Common\Pantheon.Common.csproj">
+      <Project>{40775c75-0d3d-4603-9d06-4756973a9e16}</Project>
+      <Name>Pantheon.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="project.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
