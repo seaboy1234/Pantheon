@@ -77,6 +77,7 @@ namespace Pantheon.Common.TCP
 
         public void Connect()
         {
+			OnConnectionStarted?.Invoke(this, new ConnectionEventArgs(this));
             _running = true;
             _server.Start();
             _serverThread.Start();

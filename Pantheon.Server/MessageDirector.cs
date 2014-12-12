@@ -3,6 +3,7 @@ using System.Threading;
 using System.Xml.Linq;
 using Pantheon.Common;
 using Pantheon.Common.TCP;
+using Pantheon.Common.Event;
 using Pantheon.Core;
 using Pantheon.Core.Logging;
 using Pantheon.MessageDirector;
@@ -102,24 +103,28 @@ namespace Pantheon.Server
         }
 
         private INetworkManager GetClientNetworkManager()
-        {
-            if (_tcp)
-            {
-                return new TcpNetworkManager(_address, _port);
-            }
-            return new ClientNetworkManager(_address, _port);
+		{
+			NetworkManagerFeatures features;
+			if (_tcp) {
+				features = NetworkManagerFeatures.TcpClient;
+			} else {
+				features = NetworkManagerFeatures.LidgrenClient;
+				}
+			return NetworkManagerFactory.CreateNetworkManager (features, _address, _port);
         }
 
         private INetworkManager GetServerNetworkManager()
         {
-            if (_tcp)
-            {
-                return new TcpNetworkManagerServer(_port);
-            }
-            return new ServerNetworkManager(_port);
+			NetworkManagerFeatures features;
+			if (_tcp) {
+				features = NetworkManagerFeatures.TcpServer;
+			} else {
+				features = NetworkManagerFeatures.LidgrenServer;
+			}
+			return NetworkManagerFactory.CreateNetworkManager (features, _port);
         }
 
-        private void OnErrorWarning(object sender, Common.Event.DataEventArgs e)
+        private void OnErrorWarning(object sender, DataEventArgs e)
         {
             Console.WriteLine(e.Data.ReadString());
         }

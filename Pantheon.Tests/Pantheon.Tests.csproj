@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\xunit.core.2.0.0-beta4-build2738\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.0.0-beta4-build2738\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid\xunit.core.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -61,16 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pantheon.Common\Pantheon.Common.csproj">
-      <Project>{40775c75-0d3d-4603-9d06-4756973a9e16}</Project>
+      <Project>{40775C75-0D3D-4603-9D06-4756973A9E16}</Project>
       <Name>Pantheon.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Pantheon.Server.Config.Json\Pantheon.Server.Config.Json.csproj">
-      <Project>{2b41b40b-e8c9-4b09-8c2d-203e0eac8e35}</Project>
-      <Name>Pantheon.Server.Config.Json</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Pantheon.Server.Config\Pantheon.Server.Config.csproj">
-      <Project>{a35b4cf6-bfa1-434e-82bf-d90cc260bff5}</Project>
-      <Name>Pantheon.Server.Config</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pantheon.Client\Pantheon.Client.csproj">
-      <Project>{1621e2bf-4597-4b58-bfcc-313c8e504176}</Project>
+      <Project>{1621E2BF-4597-4B58-BFCC-313C8E504176}</Project>
       <Name>Pantheon.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\Pantheon.Common\Pantheon.Common.csproj">
-      <Project>{40775c75-0d3d-4603-9d06-4756973a9e16}</Project>
+      <Project>{40775C75-0D3D-4603-9D06-4756973A9E16}</Project>
       <Name>Pantheon.Common</Name>
     </ProjectReference>
   </ItemGroup>

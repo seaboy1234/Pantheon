@@ -148,9 +148,9 @@ namespace Pantheon.Core.DistributedObjects
             _doid = doid;
 
             ulong channel, aiChannel, clChannel;
-            channel = Combine(DoPrefix, _doid);
-            aiChannel = Combine(AIPrefix, _doid);
-            clChannel = Combine(ClPrefix, _doid);
+			channel = Channel.Combine(Channel.DoPrefix, _doid);
+			aiChannel = Channel.Combine(Channel.AIPrefix, _doid);
+			clChannel = Channel.Combine(Channel.ClPrefix, _doid);
 
             Message message = new Message();
             message.AddChannel(channel);
@@ -197,9 +197,9 @@ namespace Pantheon.Core.DistributedObjects
             _doid = generator.GenerateObject(owner, _def.TypeId, obj);
 
             ulong channel, aiChannel, clChannel;
-            channel = Combine(DoPrefix, _doid);
-            aiChannel = Combine(AIPrefix, _doid);
-            clChannel = Combine(ClPrefix, _doid);
+			channel = Channel.Combine(Channel.DoPrefix, _doid);
+			aiChannel = Channel.Combine(Channel.AIPrefix, _doid);
+			clChannel = Channel.Combine(Channel.ClPrefix, _doid);
 
             _router.RegisterRoute(HandlePropertyChangedRemote, channel, aiChannel, clChannel);
         }
@@ -224,7 +224,7 @@ namespace Pantheon.Core.DistributedObjects
             var items = new List<DistributedObjectData>();
 
             Message message = new Message();
-            message.AddChannel(Combine(DoPrefix, _doid));
+			message.AddChannel(Channel.Combine(Channel.DoPrefix, _doid));
 
             message.Write(MessageCode.StateServer_DiscoverChildren);
             message.Write((ushort)0);
@@ -295,8 +295,8 @@ namespace Pantheon.Core.DistributedObjects
             }
 
             Message message = new Message();
-            message.AddChannel(Combine(DoPrefix, _doid));
-            message.From = Combine(AIPrefix, _doid);
+			message.AddChannel(Channel.Combine(Channel.DoPrefix, _doid));
+			message.From = Channel.Combine(Channel.AIPrefix, _doid);
 
             message.Write(MessageCode.StateServer_ObjectSetField);
             message.Write(_def.GetPropertyId(e.PropertyName));
